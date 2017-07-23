@@ -1,0 +1,63 @@
+body{
+	background-color: #f8f8f8;
+}
+.navbar{
+	margin-bottom: 0;
+}
+.welcome{
+	margin-top: 10%;
+	text-align: center;
+	background-color: #f8f8f8;
+}
+.welcome h1{
+	font-size: 5em;
+	color: rgba(140, 133, 133, 0.75);
+	-webkit-animation: bouncedelay 5.0s infinite ease-in-out;
+  	animation: bouncedelay 5.0s infinite  ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+ @media screen and (max-width:768px){
+	.welcome{
+		margin-top: 20%;
+		text-align: center;
+		background-color: #f8f8f8;
+	}
+	.welcome h1{
+		font-size: 4em;
+		color: rgba(140, 133, 133, 0.75);
+		-webkit-animation: bouncedelay 5.0s infinite ease-in-out;
+	  	animation: bouncedelay 5.0s infinite  ease-in-out;
+	    -webkit-animation-fill-mode: both;
+	    animation-fill-mode: both;
+	}
+} 
+@-webkit-keyframes bouncedelay {
+  0%{
+    color: rgba(140, 133, 133, 0.55);
+  }
+  50%{
+    color: rgba(140, 133, 133, 0.75);
+  }
+  75%{
+  	color: rgba(140, 133, 133, 1);
+  }
+  100%{
+  	 color: rgba(140, 133, 133, 0.55);
+  }
+}
+ 
+@keyframes bouncedelay {
+  0%{
+    color: rgba(140, 133, 133, 0.55);
+  }
+  50%{
+    color: rgba(140, 133, 133, 0.75);
+  }
+  75%{
+  	color: rgba(140, 133, 133, 1);
+  }
+  100%{
+  	 color: rgba(140, 133, 133, 0.55);
+  }
+}

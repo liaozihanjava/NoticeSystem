@@ -1,0 +1,54 @@
+.navbar-admin{
+	background-color:rgb(76, 4, 121);
+	
+}
+.navbar-admin .navbar-nav>li>a{
+	color: white;
+}
+.navbar-admin .navbar-header a{
+	color: white;
+}
+.navbar-admin .navbar-toggle{
+	border-color: white;
+}
+.navbar-admin .navbar-toggle .icon-bar{
+	background-color: #fff;
+}
+.navbar-admin .nav>li>a:hover{
+	background-color:#a715e7;
+}
+.navbar-superadmin{
+	background-color:rgba(5, 8, 117, 0.79);
+	
+}
+.navbar-superadmin .navbar-nav>li>a{
+	color: white;
+}
+.navbar-superadmin .navbar-header a{
+	color: white;
+}
+.navbar-superadmin .navbar-toggle{
+	border-color: white;
+}
+.navbar-superadmin .navbar-toggle .icon-bar{
+	background-color: #fff;
+}
+.navbar-superadmin{
+	background-color:rgba(5, 8, 117, 0.79);
+	
+}
+.navbar-superadmin .navbar-nav>li>a{
+	color: white;
+}
+.navbar-superadmin .navbar-header a{
+	color: white;
+}
+.navbar-superadmin .navbar-toggle{
+	border-color: white;
+}
+.navbar-superadmin .navbar-toggle .icon-bar{
+	background-color: #fff;
+}
+.navbar-superadmin .nav>li>a:hover{
+	background-color:#093355;
+}

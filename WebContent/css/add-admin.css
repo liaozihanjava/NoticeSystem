@@ -1,0 +1,25 @@
+.notice-show form{
+	margin-top: 3%;
+	margin-bottom: 5%;
+}
+.notice-show form .form-group{
+	margin-bottom: 3%;
+}
+
+.notice-show button{
+	display: block;
+	margin-bottom: 5%;
+}
+.notice-show .operate-area{
+	margin-top: 7%;
+}
+@media screen and (min-width:768px){
+	.notice-show button{
+		display: block;
+		margin-bottom: 5%;
+		margin-left: 50%;
+	}
+	.notice-show .operate-area{
+		margin-top: 20%;
+	}
+}

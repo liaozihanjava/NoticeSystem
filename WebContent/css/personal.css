@@ -1,0 +1,21 @@
+.navbar{
+	margin-bottom: 0;
+}
+.personal-content{
+	background-color: gray;
+	padding-top: 1px;
+	background-image: url("../images/login-pic.jpg");
+	height: 90vh;
+	background-size: cover;
+}
+.personal-info{
+	margin-top: 10%;
+	background-color: white;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+@media screen and (max-width: 480px){
+	.personal-info{
+		margin-top: 20%;
+	}
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nms.mapper.NoticeMapper">
+	<resultMap type="com.nms.bean.Notice" id="noticeMap">
+		<result property="nno" column="nno" />
+		<result property="type" column="type" />
+		<result property="deptno" column="deptno" />
+		<result property="content" column="content" />
+		<result property="status" column="status" />
+		<result property="empno" column="empno" />
+		<result property="date" column="date" />
+		<result property="title" column="title" />
+	</resultMap>
+
+	<!-- 此处select标签的id值对应Mapper类中方法名 -->
+	<select id="getNoticeByEmpno" parameterType="int" resultMap="noticeMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from notice where empno = #{empno} 
+	</select>
+	<select id="getNoticeByDeptno" parameterType="int" resultMap="noticeMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from notice where deptno = #{deptno} 
+	</select>
+	<insert id="insertNotice" parameterType="com.nms.bean.Notice"
+		useGeneratedKeys="true" keyProperty="nno">
+		insert into
+		notice(type,deptno,content,status,empno,date,title)
+		values(#{type},#{deptno},#{content},#{status},#{empno},#{date},#{title})
+	</insert>
+	<delete id="deleteNotice" parameterType="int">
+		delete from notice where
+		nno=#{nno}
+	</delete>
+	<select id="showNoticeDetail" parameterType="int" resultMap="noticeMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from notice where nno = #{nno}
+	</select>
+	<select id="showAllNotices" resultMap="noticeMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from notice where (status=1 and empno = #{empno}) or
+		(status=1 and deptno=#{deptno} and empno=0) or type=1 
+	</select>
+	<update id="updateNoticeStatus" parameterType="int">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		update notice set
+		status=1 where nno=#{nno}
+	</update>
+	<select id="showUnNotices" resultMap="noticeMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from notice where status=0 
+	</select>
+	<select id="showAllNoticesBoss"  resultMap="noticeMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from notice where status=1 
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

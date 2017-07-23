@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nms.mapper.UserMapper">
+	<resultMap type="com.nms.bean.User" id="userMap">
+		<result property="empno" column="empno" />
+		<result property="name" column="name" />
+		<result property="password" column="password" />
+		<result property="phone" column="phone" />
+		<result property="level" column="level" />
+		<result property="deptno" column="deptno" />
+		<result property="email" column="email" />
+	</resultMap>
+
+	<!-- 此处select标签的id值对应Mapper类中方法名 -->
+	<select id="getUserByName" parameterType="string" resultMap="userMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from user where name = #{name}
+	</select>
+	<select id="getUserByEmpno" parameterType="int" resultMap="userMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from user where name = #{empno}
+	</select>
+	<update id="updateUser" parameterType="com.nms.bean.User">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		update user
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="level != null">
+				level = #{level,jdbcType=INTEGER},
+			</if>
+			<if test="deptno != null">
+				deptno = #{deptno,jdbcType=INTEGER},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where empno = #{empno,jdbcType=INTEGER}
+	</update>
+	<select id="getDeptUser" parameterType="int" resultMap="userMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from user where deptno=#{deptno}
+	</select>
+	
+	<insert id="insertUser" parameterType="com.nms.bean.User"
+		useGeneratedKeys="true" keyProperty="empno">
+		insert into
+		user(name,password,phone,level,deptno,email)
+		values(#{name},#{password},#{phone},#{level},#{deptno},#{email})
+	</insert>
+	<select id="checkUserExist" parameterType="string" resultMap="userMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from user where name=#{name}
+	</select>
+	<select id="checkUserExistForDelete" parameterType="com.nms.bean.User" resultMap="userMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from user where name=#{name} and phone=#{phone} and password=#{password} and email=#{email} and deptno=#{deptno} and level=#{level}
+	</select>
+	<delete id="deleteUser" parameterType="string">
+		delete from user where 
+ 		name=#{name}
+	</delete>
+	<select id="findAllUser" resultMap="userMap">
+		<!-- 此处写sql语句,#{Mapper类传入的参数} -->
+		select * from user where level !=0 order by level
+	</select>
+	
+</mapper>
